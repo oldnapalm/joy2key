@@ -25,6 +25,22 @@ verbose = False
 if len(sys.argv) > 1:
     if sys.argv[1] == '-v': verbose = True
 
+def axis(a, n, p):
+    if a == -1:
+        if not n in pressed:
+            key.PressKey(n)
+            pressed.append(n)
+    elif n in pressed:
+        key.ReleaseKey(n)
+        pressed.remove(n)
+    if a == 1:
+        if not p in pressed:
+            key.PressKey(p)
+            pressed.append(p)
+    elif p in pressed:
+        key.ReleaseKey(p)
+        pressed.remove(p)
+
 def button(b, k):
     if b:
         if not k in pressed:
@@ -33,38 +49,6 @@ def button(b, k):
     elif k in pressed:
         key.ReleaseKey(k)
         pressed.remove(k)
-
-def axisX(a, l, r):
-    if a == -1:
-        if not l in pressed:
-            key.PressKey(l)
-            pressed.append(l)
-    elif l in pressed:
-        key.ReleaseKey(l)
-        pressed.remove(l)
-    if a == 1:
-        if not r in pressed:
-            key.PressKey(r)
-            pressed.append(r)
-    elif r in pressed:
-        key.ReleaseKey(r)
-        pressed.remove(r)
-
-def axisY(a, u, d):
-    if a == -1:
-        if not u in pressed:
-            key.PressKey(u)
-            pressed.append(u)
-    elif u in pressed:
-        key.ReleaseKey(u)
-        pressed.remove(u)
-    if a == 1:
-        if not d in pressed:
-            key.PressKey(d)
-            pressed.append(d)
-    elif d in pressed:
-        key.ReleaseKey(d)
-        pressed.remove(d)
 
 print("Main wait loop")
 
@@ -77,8 +61,8 @@ while True:
             y = round((info.dwYpos - startinfo.dwYpos) / (startinfo.dwYpos + 1))
             btns = [(1 << i) & info.dwButtons != 0 for i in range(caps.wNumButtons)]
 
-            axisX(x, left, right)
-            axisY(y, key.KEY_W, key.KEY_S)
+            axis(x, left, right)
+            axis(y, key.KEY_W, key.KEY_S)
 
             button(btns[0], key.VK_NUMPAD1) # button 1 = auto drive
             button(btns[3], key.VK_NUMPAD7) # button 4 = radio

@@ -6,11 +6,12 @@ Uses [Python Windows joystick API](https://github.com/Rabbid76/python_windows_jo
 
 ## Mapped buttons:
 
-* D-pad left - Numpad 4 or A (toggle with SELECT button)
-* D-pad right - Numpad 6 or D (toggle with SELECT button)
+* D-pad left - Numpad 4 or A
+* D-pad right - Numpad 6 or D
 * D-pad up - W
 * D-pad down - S
-* Button 1 - Numpad 1 (auto drive)
+* Button 3 - Numpad 1 (auto drive)
 * Button 4 - Numpad 7 (radio)
+* Button 5 - Toggle smooth steering
 
 Use -v argument to see the joystick buttons numbers.

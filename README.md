@@ -4,6 +4,8 @@ Map joystick buttons to keyboard keys, to steer in [GTBikeV](https://www.gta5-mo
 
 Uses [Python Windows joystick API](https://github.com/Rabbid76/python_windows_joystickapi) and sample code from [How to generate keyboard events in Python?](https://stackoverflow.com/questions/13564851/how-to-generate-keyboard-events-in-python)
 
+If your joystick has an analog stick you may prefer using [x360ce](https://www.x360ce.com/) for steering. You can still use joy2key to enable/disable auto drive and change radio station, just leave buttons 3 and 4 unmapped in x360ce.
+
 ## Mapped buttons:
 
 * D-pad left - Numpad 4 or A
